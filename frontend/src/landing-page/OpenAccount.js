@@ -14,7 +14,7 @@ function OpenAccount() {
           className="p-2 btn btn-primary fs-5 mb-5"
           style={{ width: "20%", margin: "0 auto" }}
         >
-          <Link to="http://localhost:3001/register" className="text-white text-decoration-none">
+          <Link to="https://zerodha-kite-flax.vercel.app/register" className="text-white text-decoration-none">
           Sign up Now
           </Link>
         </button>
