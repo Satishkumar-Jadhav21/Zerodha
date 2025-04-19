@@ -44,7 +44,7 @@ export default function Login() {
     }
 
     axios
-      .post("http://localhost:3005/user/login", data, {
+      .post("https://zerodha-backend-n16y.onrender.com/user/login", data, {
         headers: {
           "Content-Type": "application/json",
         },

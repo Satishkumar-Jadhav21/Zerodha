@@ -45,7 +45,7 @@ export default function Register() {
     }
 
     axios
-  .post("http://localhost:3005/user/register", data, {
+  .post("https://zerodha-backend-n16y.onrender.com/user/register", data, {
     headers: {
       "Content-Type": "application/json",
     },

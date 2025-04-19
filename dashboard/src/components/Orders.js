@@ -10,7 +10,7 @@ const Orders = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3005/orders", {
+      .get("https://zerodha-backend-n16y.onrender.com/orders", {
         headers: {
           Authorization: user,
         },

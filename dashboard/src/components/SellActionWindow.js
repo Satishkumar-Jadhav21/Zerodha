@@ -14,7 +14,7 @@ const SellActionWindow = ({ uid }) => {
   const generalContext = useContext(GeneralContext);
 
   const handleSellClick = () => {
-    axios.post("http://localhost:3005/newOrder", {
+    axios.post("https://zerodha-backend-n16y.onrender.com/newOrder", {
       name: uid,
       qty: Number(stockQuantity),
       price: Number(stockPrice),
