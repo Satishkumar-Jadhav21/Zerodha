@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";  
 
 function Hero() {
   return (
@@ -6,7 +7,7 @@ function Hero() {
       <div className="row text-center">
         <img
           src="media/images/homeHero.png"
-          alt="Hero Image"
+          alt="HeroPicture"
           className="mb-5"
         />
         <h1 className="mt-5">Invest in everything</h1>
@@ -18,7 +19,9 @@ function Hero() {
           className="p-2 btn btn-primary fs-5 mb-5"
           style={{ width: "20%", margin: "0 auto" }}
         >
-          Signup Now
+          <Link to="https://zerodha-kite-flax.vercel.app/register" className="text-white text-decoration-none">
+          Sign up Now
+          </Link>
         </button>
       </div>
     </div>

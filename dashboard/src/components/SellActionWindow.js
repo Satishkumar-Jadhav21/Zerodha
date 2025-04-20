@@ -1,10 +1,9 @@
 import React, { useState, useContext } from "react";
-// import { Link } from "react-router-dom";
+ import { Link } from "react-router-dom";
 import axios from "axios";
 
 import GeneralContext from "./GeneralContext";
 import "./BuyActionWindow.css"; // You can change this to SellActionWindow.css if needed
-import { Link } from "@mui/material";
 
 
 const SellActionWindow = ({ uid }) => {

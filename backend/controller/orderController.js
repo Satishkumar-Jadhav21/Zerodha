@@ -7,6 +7,7 @@ module.exports.create = async (req, res) => {
     qty: req.body.qty,
     price: req.body.price,
     mode: req.body.mode,
+    user: req.user.email,
   });
 
   let savedOrder = await newOrder.save();

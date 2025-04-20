@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Universe() {
   return (
@@ -11,34 +12,36 @@ function Universe() {
         </p>
 
         <div className="col-4 p-3 mt-5">
-          <img src="media/images/smallcaseLogo.png" />
+          <img src="media/images/smallcaseLogo.png"  alt="UniverPhto"/>
           <p className="text-small text-muted">Thematic investment platform</p>
         </div>
         <div className="col-4 p-3 mt-5">
-          <img src="media/images/smallcaseLogo.png" />
+          <img src="media/images/smallcaseLogo.png"  alt="UniverPhto"/>
           <p className="text-small text-muted">Thematic investment platform</p>
         </div>
         <div className="col-4 p-3 mt-5">
-          <img src="media/images/smallcaseLogo.png" />
+          <img src="media/images/smallcaseLogo.png" alt="UniverPhto"/>
           <p className="text-small text-muted">Thematic investment platform</p>
         </div>
         <div className="col-4 p-3 mt-5">
-          <img src="media/images/smallcaseLogo.png" />
+          <img src="media/images/smallcaseLogo.png" alt="UniverPhto" />
           <p className="text-small text-muted">Thematic investment platform</p>
         </div>
         <div className="col-4 p-3 mt-5">
-          <img src="media/images/smallcaseLogo.png" />
+          <img src="media/images/smallcaseLogo.png" alt="UniverPhto" />
           <p className="text-small text-muted">Thematic investment platform</p>
         </div>
         <div className="col-4 p-3 mt-5">
-          <img src="media/images/smallcaseLogo.png" />
+          <img src="media/images/smallcaseLogo.png" alt="UniverPhto" />
           <p className="text-small text-muted">Thematic investment platform</p>
         </div>
         <button
           className="p-2 btn btn-primary fs-5 mb-5"
           style={{ width: "20%", margin: "0 auto" }}
         >
-          Signup Now
+          <Link to="https://zerodha-kite-flax.vercel.app/register" className="text-white text-decoration-none">
+            Sign up Now
+          </Link>
         </button>
       </div>
     </div>

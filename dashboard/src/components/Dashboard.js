@@ -9,11 +9,8 @@ import Orders from "./Orders";
 import Positions from "./Positions";
 import Summary from "./Summary";
 import WatchList from "./WatchList";
-import WatchListItem from "./WatchListItem";
-import Menu from "./Menu";
 import { GeneralContextProvider } from "./GeneralContext";
-import BuyActionWindow from "./BuyActionWindow";
-import SellActionWindow from "./SellActionWindow";
+
 
 
 const Dashboard = () => {
@@ -29,13 +26,6 @@ const Dashboard = () => {
           <Route path="/positions" element={<Positions />} />
           <Route path="/funds" element={<Funds />} />
           <Route path="/apps" element={<Apps />} />
-          <Route path="/watchlist" element={<WatchList />} />
-          <Route path="/summary" element={<Summary />} />
-          <Route path="/WatchListItem" element={<WatchListItem />} /> 
-          <Route path="/Menu" element={<Menu />} />
-          <Route path="/BuyActionWindow" element={<BuyActionWindow />} />
-          <Route path="/GeneralContextProvider" element={<GeneralContextProvider />} />
-          <Route path="/SellActionWindow" element={<SellActionWindow />} />
         </Routes>
       </div>
       </GeneralContextProvider>
