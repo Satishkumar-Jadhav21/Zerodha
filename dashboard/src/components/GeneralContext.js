@@ -18,7 +18,7 @@ export const GeneralContextProvider = ({ children }) => {
     }
 
     axios
-      .get("http://localhost:3005/orders", {
+      .get("https://zerodha-backend-n16y.onrender.com/orders", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {

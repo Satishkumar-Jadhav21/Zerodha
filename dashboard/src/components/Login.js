@@ -29,24 +29,6 @@ export default function Login() {
       navigate('/dashboard');
     }
   }, [user, navigate]);
-  
-  // const handleLogin = async (email, password) => {
-  //   try {
-  //     const response = await axios.post("http://localhost:3005/user/login", { email, password });
-  //     const token = response.data.token;
-
-  //     if (!token) {
-  //       console.error("No token received from server");
-  //       return;
-  //     }
-
-  //     localStorage.setItem("token", token); // Save the token to localStorage
-  //     console.log("Token saved to localStorage:", token);
-  //     navigate("/"); // Redirect to the dashboard
-  //   } catch (error) {
-  //     console.error("Login failed:", error.response?.data || error.message);
-  //   }
-  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();

@@ -11,7 +11,7 @@ const placeOrder = (uid, qty, price, mode) => {
   }
 
   return axios.post(
-    "http://localhost:3005/orders/create",
+    "https://zerodha-backend-n16y.onrender.com/orders/create",
     { name: uid, qty, price, mode },
     {
       headers: { 

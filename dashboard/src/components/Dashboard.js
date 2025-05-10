@@ -27,6 +27,7 @@ const Dashboard = () => {
           <Route path="/positions" element={<Positions />} />
           <Route path="/funds" element={<Funds />} />
           <Route path="/apps" element={<Apps />} />
+          <Route path="/dashboard" element={<Summary />} />
         </Routes>
       </div>
       {isBuyWindowOpen && <BuyActionWindow uid={selectedStockUID} />}
