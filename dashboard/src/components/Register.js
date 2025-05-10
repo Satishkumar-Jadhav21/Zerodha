@@ -51,18 +51,17 @@ export default function Register() {
     },
   })
 
-      .then(async (res) => {
-        await login(res.data.token);
-      })
-      .catch((error) => {
-        if (error.response) {
-          setAlert({ st: true, msg: error.response.data.error });
-        } else if (error.request) {
-          setAlert({ st: true, msg: "Network Error" });
-        } else {
-          setAlert({ st: true, msg: "Something Went Wrong" });
-        }
-      });
+      // Register.js (Update the .then block)
+.then(async (res) => {
+  const token = res.data.token;
+  if (!token) {
+    setAlert({ st: true, msg: "Registration failed: No token received" });
+    return;
+  }
+  localStorage.setItem("token", token); // Add this line
+  await login(token);
+  navigate("/dashboard"); // Redirect to dashboard
+})
   };
 
   return (

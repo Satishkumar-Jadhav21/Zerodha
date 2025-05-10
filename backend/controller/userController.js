@@ -21,7 +21,7 @@ module.exports.register = async (req, res) => {
     });
     await newUser.save();
 
-    const token = jwt.sign({ email: newUser.email }, process.env.TOKEN_KEY);
+    const token = jwt.sign({ email: newUser.email }, process.env.TOKEN_KEY, { expiresIn: "1h" });
     res.status(200).json({ token });
   } catch (error) {
     res.status(500).json({ error: "Internal server error" });
@@ -40,7 +40,7 @@ module.exports.login = async (req, res) => {
       return res.status(401).json({ error: "Invalid credentials" });
     }
 
-    const token = jwt.sign({ email: user.email }, process.env.TOKEN_KEY);
+    const token = jwt.sign({ email: user.email }, process.env.TOKEN_KEY, { expiresIn: "1h" });
     res.status(200).json({ token });
   } catch (error) {
     res.status(500).json({ error: "Internal server error" });

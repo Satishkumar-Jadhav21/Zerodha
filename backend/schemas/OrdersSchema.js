@@ -5,6 +5,7 @@ const OrdersSchema = new Schema({
   qty: Number,
   price: Number,
   mode: String,
+  user: { type: String, required: true }, // Add user field
 });
 
 module.exports = { OrdersSchema };

@@ -30,6 +30,23 @@ export default function Login() {
     }
   }, [user, navigate]);
   
+  // const handleLogin = async (email, password) => {
+  //   try {
+  //     const response = await axios.post("http://localhost:3005/user/login", { email, password });
+  //     const token = response.data.token;
+
+  //     if (!token) {
+  //       console.error("No token received from server");
+  //       return;
+  //     }
+
+  //     localStorage.setItem("token", token); // Save the token to localStorage
+  //     console.log("Token saved to localStorage:", token);
+  //     navigate("/"); // Redirect to the dashboard
+  //   } catch (error) {
+  //     console.error("Login failed:", error.response?.data || error.message);
+  //   }
+  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -38,29 +55,30 @@ export default function Login() {
       email: formData.get("email")?.trim(),
       password: formData.get("password")?.trim(),
     };
+
     if (!data.email || !data.password) {
       setAlert({ st: true, msg: "Please enter both email and password" });
       return;
     }
 
-    axios
-      .post("https://zerodha-backend-n16y.onrender.com/user/login", data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then(async (res) => {
-        await login(res.data.token);
-      })
-      .catch((error) => {
-        if (error.response) {
-          setAlert({ st: true, msg: error.response.data.error });
-        } else if (error.request) {
-          setAlert({ st: true, msg: "Network Error" });
-        } else {
-          setAlert({ st: true, msg: "Something Went Wrong" });
-        }
+    try {
+      const res = await axios.post("https://zerodha-backend-n16y.onrender.com/user/login", data, {
+        headers: { "Content-Type": "application/json" },
       });
+      const token = res.data.token;
+      if (!token) {
+        setAlert({ st: true, msg: "Login failed: No token received" });
+        return;
+      }
+      localStorage.setItem("token", token);
+      await login(token);
+      navigate("/dashboard");
+    } catch (error) {
+      setAlert({
+        st: true,
+        msg: error.response?.data?.error || "Something went wrong",
+      });
+    }
   };
 
   return (

@@ -15,11 +15,10 @@ const orderRoute = require("./routes/orderRoute");
 
 const app = express();
 
-// ✅ Use consistent variable names
 const PORT = process.env.PORT || 3005;
 const MONGO_URI = process.env.MONGO_URI;
 
-// Middlewares
+// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -54,8 +53,9 @@ app.post("/newOrder", async (req, res) => {
   res.send("Order saved!");
 });
 
-// Connect to MongoDB & Start Server
-mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+// Connect to MongoDB and start the server
+mongoose
+  .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("DB Connected");
     app.listen(PORT, () => {
@@ -63,16 +63,16 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     });
   })
   .catch((err) => {
-    console.error("MongoDB connection error:", err);
+    console.error("MongoDB connection error:", err.message);
   });
 
-  app.post("/login", async (req, res) => {
-    const { email, password } = req.body;
-  
-    // For testing: just echo the request
-    if (email === "test@example.com" && password === "123456") {
-      return res.status(200).json({ message: "Login successful!" });
-    }
-  
-    res.status(401).json({ message: "Invalid credentials" });
-  });
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+
+  // For testing: just echo the request
+  if (email === "test@example.com" && password === "123456") {
+    return res.status(200).json({ message: "Login successful!" });
+  }
+
+  res.status(401).json({ message: "Invalid credentials" });
+});
