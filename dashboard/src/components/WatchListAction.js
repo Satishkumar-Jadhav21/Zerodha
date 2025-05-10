@@ -8,11 +8,13 @@ function WatchListAction({ uid }) {
   const generalContext = useContext(GeneralContext);
 
   const handleBuyClick = () => {
+    console.log("Buy Button Clicked for:", uid); // Debugging log
     generalContext.openBuyWindow(uid);
   };
 
   const handleSellClick = () => {
-    generalContext.openSellWindow(uid); // Open the Sell window
+    console.log("Sell Button Clicked for:", uid); // Debugging log
+    generalContext.openSellWindow(uid);
   };
 
   return (
